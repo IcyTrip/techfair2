@@ -1,0 +1,240 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html{
+    font-family: "Inter", sans-serif;
+}
+
+/* header start */
+
+header{
+    background-color:white;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px;
+    box-shadow:1px 1px 20px rgba(0, 0, 0, 0.105);
+    position:fixed;
+    width:100%;
+}
+
+.logoA{
+    width:4%;
+    text-decoration:none;
+    color:black;
+    display:flex;
+    align-items:center;
+}
+
+.logoA h1{
+    padding:0 10px;
+}
+
+.logo{
+    width:100%;
+    height:auto;
+}
+
+.list{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:30vw;
+    font-size:18px;
+    margin-right:50px;
+}
+
+.list a{
+    padding:14px 30px;
+    cursor:pointer;
+    transition:.3s;
+    text-decoration:none;
+}
+
+.list a:not(.buttonThing) {
+    color:black;
+}
+
+.list a:hover:not(.buttonThing){
+    color:rgb(144, 144, 144);
+}
+
+.buttonThing{
+    background-color:rgb(190, 0, 0);
+    border-radius:50px;
+    color:white;
+}
+
+.buttonThing:hover{
+    background-color:rgb(128, 0, 0);
+}
+
+/* header end */
+
+/* hero start */
+
+.heroDiv{
+    overflow:hidden;
+    height:80vh;
+    background-image:url(images/main5.jpg);
+    background-color:rgba(0, 0, 0, 0.2);
+    background-blend-mode:darken;
+    background-size:100%;
+    background-repeat:no-repeat;
+    background-position-y:-270px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.darken{
+    width:80%;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.darken h1{
+    font-size:25px;
+    font-weight:300;
+}
+
+.darken p{
+    width:40%;
+    line-height:24px;
+    font-weight:200;
+}
+
+.darken a{
+    padding:10px 25px;
+    background-color:rgb(190, 0, 0);
+    border-radius:50px;
+    width:fit-content;
+    transition:.3s;
+    cursor:pointer;
+    text-decoration:none;
+    color:white;
+}
+
+.darken a:hover{
+    background-color:rgb(147, 0, 0);
+}
+
+/* hero end */
+
+/* main start */
+
+.mainContent{
+    text-align:center;
+    padding:50px 200px;
+}
+
+.mainContent hr{
+    border:none;
+    background-color:rgb(193, 0, 0);
+    height:1.5px;
+    margin-top:10px;
+    margin-bottom:25px;
+    width:20%;
+}
+
+.mainContent h2{
+    font-size:50px;
+    font-weight:200;
+}
+
+.mainContent p{
+    line-height:25px;
+    width:80%;
+    margin:auto;
+}
+
+.mainContent2{
+    text-align:center;
+    padding:50px 200px;
+    background-color:rgb(224, 224, 224);
+}
+
+.mainContent2 hr{
+    border:none;
+    background-color:rgb(193, 0, 0);
+    height:1.5px;
+    margin-top:10px;
+    margin-bottom:40px;
+    width:5%;
+}
+
+.mainContent2 h2{
+    font-size:50px;
+    font-weight:200;
+}
+
+.questions{
+    display:flex;
+    justify-content:space-between;
+}
+
+.card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background-color:white;
+    width:20%;
+    padding:30px 17px 30px 17px;
+    margin-bottom:30px;
+}
+
+.card h3{
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:16px;
+    font-weight:300;
+}
+
+/* main end */
