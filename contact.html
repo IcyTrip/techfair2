@@ -6,11 +6,66 @@
         <title>Contact | SCD</title>
         <link rel="stylesheet" href="contact.css">
         <link rel="shortcut icon" href="images/Logo.png" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
+        <header>
+            <a class="logoA" href="index.html">
+                <img src="images/Logo.png" alt="SCD Logo" class="logo">
+                <h1>Specialized Concrete Designers</h1>
+            </a>
+            <div>
+                <div class="list">
+                    <a href="index.html">Home</a>
+                    <a href="sevices.html">Services</a>
+                    <a href="contact.html" class="buttonThing">Contact</a>
+                </div>
+            </div>
+        </header>
         <main>
-        <nav></nav>
+            <section class="contact-form">
+                <form action="POST">
+                    <h2>Contact Us</h2>
+                    <hr id="h2-underline">
 
+                    <div id="name-group">
+                        <span>
+                            <label for="name">First Name:</label><span class="req">*</span> <br>
+                            <input type="text" id="fname" name="fname" required>
+                        </span>
+                        <span>
+                            <label for="name">Last Name:</label><span class="req">*</span> <br>
+                            <input type="text" id="lname" name="lname" required>
+                        </span>
+                    </div>
+
+                    <div id="email-group">
+                        <label for="email">Email:</label><span class="req">*</span> <br>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div id="phone-group">
+                        <label for="phone">Phone Number:</label> <br>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div id="address-group">
+                        <label for="address">Address:</label> <br>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+
+                    <div id="message-group">
+                        <label for="message">Message:</label><span class="req">*</span> <br>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <div id="submit-group">
+                        <input type="submit" id="submit-btn" value="Submit">
+                    </div>
+                </form>
+            </section>
         </main>
         <footer>
             <div class="footer-text">
