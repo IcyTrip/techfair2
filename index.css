@@ -238,3 +238,24 @@ header{
 }
 
 /* main end */
+
+main {
+    min-height: 93vh;
+    width: 100%;
+}
+
+footer {
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(128, 0, 0);
+    color: #fff;
+    border-top: 2px solid #000;
+}
+
+.footer-text {
+    font-size: 15px;
+    font-weight:300;
+}
