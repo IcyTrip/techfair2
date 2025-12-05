@@ -42,6 +42,10 @@ table {
 	border-spacing: 0;
 }
 
+html{
+    font-family: "Inter", sans-serif;
+}
+
 /* header start */
 
 header{
@@ -51,7 +55,6 @@ header{
     align-items:center;
     justify-content:space-between;
     padding:15px;
-    font-family: "Inter", sans-serif;
     box-shadow:1px 1px 20px rgba(0, 0, 0, 0.105);
     position:fixed;
     width:100%;
@@ -114,7 +117,47 @@ header{
     overflow:hidden;
     height:80vh;
     background-image:url(images/main5.jpg);
+    background-color:rgba(0, 0, 0, 0.2);
+    background-blend-mode:darken;
     background-size:100%;
     background-repeat:no-repeat;
     background-position-y:-270px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.darken{
+    /* background-color:rgb(255, 255, 255); */
+    width:80%;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.darken h1{
+    font-size:25px;
+    font-weight:300;
+}
+
+.darken p{
+    width:40%;
+    line-height:24px;
+    font-weight:200;
+}
+
+.darken a{
+    padding:10px 25px;
+    background-color:rgb(190, 0, 0);
+    border-radius:50px;
+    width:fit-content;
+    transition:.3s;
+    cursor:pointer;
+    text-decoration:none;
+    color:white;
+}
+
+.darken a:hover{
+    background-color:rgb(147, 0, 0);
 }
