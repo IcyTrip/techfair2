@@ -118,7 +118,7 @@ header{
 .heroDiv{
     overflow:hidden;
     height:80vh;
-    background-image:url(images/main5.jpg);
+    background-image:url(images/main1.jpg);
     background-color:rgba(0, 0, 0, 0.2);
     background-blend-mode:darken;
     background-size:100%;
@@ -130,16 +130,17 @@ header{
 }
 
 .darken{
-    width:80%;
     color:white;
     display:flex;
     flex-direction:column;
     gap:15px;
+    align-items:center;
+    text-align:center;
 }
 
 .darken h1{
-    font-size:25px;
-    font-weight:300;
+    font-size:90px;
+    font-weight:500;
 }
 
 .darken p{
