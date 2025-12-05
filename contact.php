@@ -1,3 +1,63 @@
+<?php
+$errors = [];
+$success = false;
+
+function h($s) { return htmlspecialchars($s ?? '', ENT_QUOTES, 'UTF-8'); }
+
+// Only handle POST submissions
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $address = trim($_POST['address'] ?? ''); // honeypot
+    if ($address !== '') {
+        // If honeypot filled, treat as spam silently
+        $errors[] = 'Spam detected.';
+    }
+
+    $fname = trim($_POST['fname'] ?? '');
+    $lname = trim($_POST['lname'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $phone = trim($_POST['phone'] ?? '');
+    $message = trim($_POST['message'] ?? '');
+
+    if ($fname === '') { $errors[] = 'First name is required.'; }
+    if ($lname === '') { $errors[] = 'Last name is required.'; }
+    if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) { $errors[] = 'A valid email address is required.'; }
+    if ($phone === '') { $errors[] = 'Phone number is required.'; }
+    if ($message === '') { $errors[] = 'Message is required.'; }
+
+    // Basic header injection prevention
+    $injectPattern = '/[\r\n]|content-type:|bcc:|cc:/i';
+    foreach ([$fname, $lname, $email, $phone] as $field) {
+        if (preg_match($injectPattern, $field)) {
+            $errors[] = 'Invalid input detected.';
+            break;
+        }
+    }
+
+    if (empty($errors)) {
+        $to = 'dankasagan@gmail.com';
+        $subject = 'Contact form: ' . $fname . ' ' . $lname;
+        $body = "Name: " . $fname . " " . $lname . "\n";
+        $body .= "Email: " . $email . "\n";
+        $body .= "Phone: " . $phone . "\n\n";
+        $body .= "Message:\n" . $message . "\n";
+
+        $serverDomain = $_SERVER['SERVER_NAME'] ?? 'localhost';
+        $from = 'noreply@' . $serverDomain;
+        $headers = [];
+        $headers[] = 'From: ' . $from;
+        // Add Reply-To so recipient can reply to user
+        $headers[] = 'Reply-To: ' . $email;
+        $headers[] = 'X-Mailer: PHP/' . phpversion();
+
+        $ok = @mail($to, $subject, $body, implode("\r\n", $headers));
+        if ($ok) {
+            $success = true;
+        } else {
+            $errors[] = 'Failed to send email. Please try again later.';
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,9 +86,26 @@
         </header>
         <main>
             <section id="php-confirm">
-                <h3>
-                    Thank you for contacting Specialized Concrete Designers. We have received your message and will get back to you shortly.
-                </h3>
+                <?php if ($success): ?>
+                    <h3>
+                        Thank you for contacting Specialized Concrete Designers. We have received your message and will get back to you shortly.
+                    </h3>
+                <?php else: ?>
+                    <?php if (!empty($errors)): ?>
+                        <div style="max-width:60vw;margin:4vh auto;padding:20px;border:1px solid #cc0000;border-radius:8px;background:#fff6f6;">
+                            <strong>Please correct the following:</strong>
+                            <ul>
+                                <?php foreach ($errors as $e): ?>
+                                    <li><?php echo h($e); ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+
+                    <div style="text-align:center;margin-top:6vh;">
+                        <p>If you were not redirected, you can <a href="contact.html">return to the form</a> and try again.</p>
+                    </div>
+                <?php endif; ?>
             </section>
         </main>
         <footer>
